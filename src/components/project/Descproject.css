@@ -1,0 +1,151 @@
+/* Container หลัก จัด Flexbox */
+.project-detail-container {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 140px 20px 80px; /* เว้นระยะจาก Navbar */
+    min-height: 80vh;
+}
+
+/* ฝั่งซ้าย: เนื้อหา */
+.project-content-wrapper {
+    margin-top: -50px;
+    flex: 3; /* กินพื้นที่ 3 ส่วน */
+    position: relative;
+}
+
+.detail-title {
+    font-family: 'GlacialIndifference', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: #111;
+    margin-bottom: 30px;
+    
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.detail-image {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.detail-image img:hover {
+    transform: scale(1.02);
+}
+
+.detail-description {
+    font-family: 'GlacialIndifference', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* ปุ่มกด (Demo / Github) */
+.detail-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #111;
+    background-color: transparent;
+    color: #111;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background-color: #111;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* ฝั่งขวา: Sidebar */
+.project-sidebar {
+    flex: 1; /* กินพื้นที่ 1 ส่วน */
+    position: sticky;
+    top: 100px; /* ให้ Sidebar ไหลตามลงมา */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.sidebar-box {
+    background-color: #fafafa;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #fafafa;
+    box-shadow: 0 25px 20px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-box h3 {
+    font-family: 'GlacialIndifference', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: #111;
+    margin-top: 0;
+}
+
+.divider {
+    width: 40px;
+    height: 3px;
+    background-color: #111;
+    margin-bottom: 25px;
+}
+
+.sidebar-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-box li {
+    font-family: 'GlacialIndifference', sans-serif;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+    font-size: 1rem;
+}
+
+.sidebar-box li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-detail-container {
+        flex-direction: column; /* มือถือเรียงลงแนวตั้ง */
+        padding-top: 100px;
+    }
+    
+    .project-sidebar {
+        width: 100%;
+        position: static;
+    }
+}
