@@ -1,0 +1,123 @@
+@font-face {
+  font-family: Fontstyle;
+  src: url("/src/assets/fonts/GlacialIndifference-Regular.otf") format("opentype");
+}
+
+/* รองรับมือถือ (Responsive) */
+@media (max-width: 768px) {
+  .about-content-wrapper {
+    grid-template-columns: 1fr; /* ยุบเหลือ 1 คอลัมน์ */
+    gap: 40px;
+  }
+}
+/* about */
+.about-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* แบ่งครึ่ง 50:50 */
+  gap: 60px; /* ระยะห่างระหว่าง Timeline กับ Skills */
+  margin-top: 40px;
+  align-items: start; /* ให้เริ่มจากบนสุดเสมอ */
+  font-family: Fontstyle;
+}
+
+.section.timeline-section h2 {
+  border-bottom: 2px solid #000;
+  font-family: Fontstyle;
+
+}
+
+.timeline {
+  margin-top: 20px;
+}
+
+.timeline .title-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* แก้ไขของเดิม */
+.title-wrapper h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0; /* ปรับ margin */
+  font-family: Fontstyle;
+}
+
+.timeline-list {
+  list-style: none;
+  position: relative;
+  margin: 0;
+  padding-left: 30px;
+}
+
+/* เส้น timeline */
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 2px;
+  height: 150px;
+  background: #000;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 2px solid #888;
+  border-radius: 50%;
+}
+
+.timeline-item-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #000;
+  font-family: Fontstyle;
+
+}
+
+.timeline-item span {
+  font-size: 1rem;
+  color: #000;
+  display: block;
+  margin-bottom: 0.5rem;
+  
+}
+
+.timeline-text {
+  font-size: 1rem;
+  color: #000;
+  line-height: 1.5;
+  font-family: Fontstyle;
+
+}
+
+/*Skill*/
+.skills-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+.skill-item {
+  background: #f3f3f3;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.2s;
+  font-family: Fontstyle;
+}

@@ -1,0 +1,111 @@
+/* --- Techstack.css --- */
+
+.techstack-container {
+    
+  font-family: 'Fontstyle', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.techstack-container .h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+/* --- Skills (Cards) --- */
+.skill-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* แบ่งเป็น 2 คอลัมน์เล็กๆ ในฝั่งขวา */
+  gap: 15px;
+}
+
+/* ถ้าหน้าจอเล็กมาก ให้ Skills เรียงแถวเดียว */
+@media (max-width: 1200px) {
+  .skill-container {
+    grid-template-columns: 1fr; 
+  }
+}
+
+.skill-category {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.skill-category:hover {
+  transform: translateY(-3px);
+  border-color: #000;
+}
+
+.skill-category h4 {
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* รายการ Skill จุดๆ */
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-item {
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.skill-item::before {
+  content: "•";
+  color: #01189e; /* สีน้ำเงินธีม */
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+/* --- Tools (Tags) --- */
+.tools-section {
+  margin-top: -12px;
+}
+
+.tool-container {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 0px;
+}
+
+.tool-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* ให้ปุ่มตกบรรทัด */
+  gap: 8px;
+}
+
+.tool-item {
+  background: #f3f3f3;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #333;
+  transition: 0.2s;
+}
+
+.tool-item:hover {
+  background: #01189e;
+  color: #fff;
+  transform: scale(1.05);
+}

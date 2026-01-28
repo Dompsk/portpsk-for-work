@@ -1,0 +1,159 @@
+@font-face {
+  font-family: Fontstyle;
+  src: url("/src/assets/fonts/GlacialIndifference-Regular.otf")
+    format("opentype");
+}
+/* 1. จัด Layout แบ่งซ้ายขวา */
+.introduce-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* ซ้าย(ข้อความ) กว้างกว่า ขวา(Skills) นิดหน่อย */
+  gap: 40px; /* ระยะห่างตรงกลาง */
+  align-items: start; /* ให้เริ่มจากบนสุดเสมอ */
+  margin-bottom: 60px; /* เว้นระยะห่างจากส่วน Timeline ด้านล่าง */
+}
+
+/* 2. ปรับแต่งกล่องข้อความ (Introduce) ให้ยืดหยุ่น */
+.introduce {
+  max-width: 100%; /* ให้เต็มพื้นที่คอลัมน์ซ้าย */
+  margin-top: -15px;   /* รีเซ็ตค่าเดิม */
+  /* ค่าอื่นๆ คงเดิม */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-family: "Fontstyle", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+/* 3. Responsive: มือถือให้เรียงลงมาแนวตั้ง */
+@media (max-width: 900px) {
+  .introduce-container {
+    grid-template-columns: 1fr; /* ยุบเหลือ 1 คอลัมน์ */
+    gap: 30px;
+  }
+}
+
+.introduce:hover {
+  transform: translateY(-5px); /* ลอยขึ้นนิดนึงเมื่อเอาเมาส์ชี้ */
+  border-color: rgba(0, 188, 212, 0.3); /* ขอบเปลี่ยนเป็นสีฟ้า */
+}
+
+.introduce p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #000000;
+  margin: 0;
+}
+
+.highlight {
+  color: transparent;
+  background: linear-gradient(90deg, #5c5c5c, #01189e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 600;
+}
+
+
+.text-accent {
+  color: transparent;
+  font-weight: 500;
+  margin-left: 15px;
+  background: linear-gradient(90deg, #7e6b00, #01189e);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* รองรับมือถือ (Responsive) */
+@media (max-width: 768px) {
+  .about-content-wrapper {
+    grid-template-columns: 1fr; /* ยุบเหลือ 1 คอลัมน์ */
+    gap: 40px;
+  }
+}
+/* about */
+.about-content-wrapper {
+  display: block;      /* เปลี่ยนจาก grid เป็น block เพื่อให้ Education เรียงลงมาปกติ */
+  width: 100%;         /* ให้ความกว้างเต็มจอ */
+  max-width: 1000px;   /* (Optional) จำกัดความกว้างไม่ให้ timeline ยาวเกินไป */
+  margin: 60px  0; /* เว้นระยะบน 60px และจัดกึ่งกลาง (auto) */
+  font-family: Fontstyle;
+}
+
+.section.timeline-section h2 {
+  border-bottom: 2px solid #000;
+  font-family: Fontstyle;
+  font-size: 36px;
+}
+
+.timeline {
+  margin-top: -305px;
+}
+
+/* แก้ไขของเดิม */
+.title-wrapper h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+  position: relative;
+  font-family: Fontstyle;
+  margin-top: -5px;
+}
+
+.timeline-list {
+  list-style: none;
+  position: relative;
+  margin-top: -15px;
+  padding-left: 30px;
+}
+
+/* เส้น timeline */
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 2px;
+  height: 150px;
+  background: #000;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 2px solid #888;
+  border-radius: 50%;
+}
+
+.timeline-item-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #000;
+  font-family: Fontstyle;
+}
+
+.timeline-item span {
+  font-size: 1rem;
+  color: #000;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-text {
+  font-size: 1rem;
+  color: #000;
+  line-height: 1.5;
+  font-family: Fontstyle;
+}

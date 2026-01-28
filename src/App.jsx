@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"; // 1. เพิ่ม import �
 //Components เดิม
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
+import About from "./components/about/About";
 
 const App = () => {
   return (
@@ -17,6 +18,10 @@ const App = () => {
               <section id="Home">
                 <Home />
               </section>
+              <section id="About">
+                <About />
+              </section>
+              
             </main>
           </>
         }
