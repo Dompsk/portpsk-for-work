@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"; // 1. เพิ่ม import �
 
 //Components เดิม
 import Navbar from "./components/navbar/Navbar";
-
+import Home from "./components/home/Home";
 
 const App = () => {
   return (
@@ -13,11 +13,16 @@ const App = () => {
         element={
           <>
             <Navbar />
+            <main>
+              <section id="Home">
+                <Home />
+              </section>
+            </main>
           </>
         }
       />
 
-     {/* <Route path="/Project/:id" element={<DescProject />} /> */}
+      {/* <Route path="/Project/:id" element={<DescProject />} /> */}
     </Routes>
   );
 };
