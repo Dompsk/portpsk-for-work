@@ -92,6 +92,11 @@ const Navbar = () => {
               Projects
             </a>
           </li>
+          <li>
+            <a href="#Certificate" onClick={(e) => handleNavClick(e, "Certificate")}>
+              Certificates
+            </a>
+          </li>
           {/* <li>
             <a href="#Contact" onClick={(e) => handleNavClick(e, "Contact")}>
               Contact
