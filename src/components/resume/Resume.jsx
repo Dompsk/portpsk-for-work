@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { resumeData } from "./Resumedata"; // Import ข้อมูล
+import Navbar from '../navbar/Navbar'; // Import Navbar ของคุณ
 import "./Resume.css"; // Import CSS
 
 const Resume = () => {
@@ -13,6 +14,7 @@ const Resume = () => {
   });
 
   return (
+    <><Navbar />
     <div style={{ backgroundColor: "#f3f4f6", minHeight: "100vh", padding: "20px" }}>
       
       {/* ส่วนนี้จะแสดงแค่ปุ่ม Export */}
@@ -117,6 +119,7 @@ const Resume = () => {
 
       </div>
     </div>
+    </>
   );
 };
 
