@@ -1,5 +1,6 @@
 import React from "react";
 import "./Home.css";
+import { Link } from "react-router-dom"; // นำเข้า Link
 
 const Home = () => {
   return (
@@ -15,9 +16,9 @@ const Home = () => {
         <a href="#project" className="project-button">
           View Project
         </a>
-        <a href="#Resume" className="project-button resume-button">
+        <Link to="/resume" className="project-button resume-button">
           Resume
-        </a>
+        </Link>
       </div>
     </section>
   );
