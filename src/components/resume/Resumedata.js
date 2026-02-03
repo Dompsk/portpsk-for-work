@@ -6,7 +6,7 @@ export const resumeData = {
     links: [
       { label: "linkedin", url: "https://www.linkedin.com/in/phongsakon/" }, // ตัวอย่าง URL
       { label: "github", url: "https://github.com/Dompsk" },
-      { label: "personal.portpsk", url: "https://portpsk-work.vercel.app/" },
+      { label: "personal.portpsk", url: "https://portpsk-for-work.vercel.app/" },
     ],
   },
   objective:
