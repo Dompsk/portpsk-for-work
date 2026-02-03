@@ -4,7 +4,7 @@ export const resumeData = {
     phone: "+66 980303668",
     email: "dompsk2547@gmail.com",
     links: [
-      { label: "linkedin", url: "https://linkedin.com/in/tanuson" }, // ตัวอย่าง URL
+      { label: "linkedin", url: "https://www.linkedin.com/in/phongsakon/" }, // ตัวอย่าง URL
       { label: "github", url: "https://github.com/Dompsk" },
       { label: "personal.portpsk", url: "https://portpsk-work.vercel.app/" },
     ],
@@ -80,11 +80,11 @@ export const resumeData = {
   ],
   skills: {
     languages: "HTML/CSS, PHP, JavaScript, Java, Python, C++, SQL",
-    frameworks: "React",
+    frameworks: "React, Bootstrap, Tailwind CSS",
     databases: "PostgreSQL, MySQL, Supabase, OracleDB",
     cloud: "Firebase, Vercel",
     analytic: "Power BI, Kaggle ,Excel ,Google Sheets ",
-    tools: "Sourcetree, Git",
+    tools: "Sourcetree, Git, Figma, Jupyter Notebook, Google Colab,",
     networking: "Cisco Packet Tracer, Wireshark",
   },
   education: [
