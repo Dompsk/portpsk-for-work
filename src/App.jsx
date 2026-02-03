@@ -7,6 +7,7 @@ import Home from "./components/home/Home";
 import About from "./components/about/About";
 import DescProject from "./components/project/Descproject"; 
 import Project from "./components/project/Project";
+import Resume from "./components/resume/Resume";
 
 const App = () => {
   return (
@@ -33,7 +34,7 @@ const App = () => {
 
        <Route path="/Project/:id" element={<DescProject />} /> 
 
-       <Route path="/resume" element={<Resume />} />
+       <Route path="/Resume" element={<Resume />} />
 
     </Routes>
   );
