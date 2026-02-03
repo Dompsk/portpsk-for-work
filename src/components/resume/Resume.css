@@ -1,23 +1,131 @@
-/* Container หลัก */
+/* --- LAYOUT ใหม่ --- */
+.resume-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px; /* ระยะห่างระหว่าง Resume กับ Sidebar */
+  padding: 40px 20px;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  margin-top: 60px; /* เว้นที่ให้ Navbar */
+}
+
+/* ส่วนแสดงผล Resume (ซ้าย) */
+.resume-preview-section {
+  flex: 0 0 800px; /* ล็อคความกว้าง Resume */
+}
+
+/* ส่วน Sidebar (ขวา) */
+.sidebar-controls {
+  flex: 0 0 300px; /* ความกว้าง Sidebar */
+  position: relative;
+  top: 60px; /* ให้ Sidebar เลื่อนตามเวลา Scroll */
+}
+
+.sidebar-box {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* ใส่เงาตลอดเวลาให้ดูเหมือนกระดาษ */
+
+}
+
+.sidebar-box h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.sidebar-desc {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Control Item (Checkbox Style) */
+.control-group h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.control-item {
+  display: flex;
+  align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fff;
+}
+
+.control-item:hover {
+  border-color: #f97316;
+  background-color: #fff7ed;
+}
+
+.control-item.active {
+  border-color: #f97316;
+  background-color: #fff7ed;
+}
+
+.control-item input[type="checkbox"] {
+  accent-color: #f97316;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.control-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.control-role {
+  font-weight: bold;
+  font-size: 13px;
+  color: #333;
+}
+
+.control-company {
+  font-size: 12px;
+  color: #666;
+}
+
+/* --- Container เดิม (ปรับแก้เล็กน้อย) --- */
 .resume-container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100%; /* ให้เต็มพื้นที่ Parent ที่กำหนดไว้ */
+  margin: 0; /* ลบ margin auto เดิมออกเพราะเราจัดด้วย Flex แล้ว */
   padding: 40px;
   background-color: white;
   color: #333;
-  font-family: 'Arial', sans-serif; /* ใช้ฟอนต์ที่อ่านง่าย */
+  font-family: 'Arial', sans-serif;
   line-height: 1.5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* ใส่เงาตลอดเวลาให้ดูเหมือนกระดาษ */
+  transition: all 0.3s ease;
 }
 
-/* ปุ่ม Export */
+.resume-container:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+/* ปุ่ม Export ย้ายมาอยู่เหนือกระดาษ */
 .export-btn-container {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .export-btn {
-  background-color: #f97316; /* สีส้มตามภาพ */
+  background-color: #f97316; 
   color: white;
   border: none;
   padding: 10px 20px;
@@ -31,131 +139,60 @@
   background-color: #ea580c;
 }
 
-/* Header Section */
-.resume-header {
-  margin-bottom: 20px;
-}
+/* --- CSS เดิม --- */
+.resume-header { margin-bottom: 20px; }
+.resume-header h1 { font-size: 32px; margin: 0 0 5px 0; font-weight: 800; }
+.contact-info { font-size: 14px; color: #555; display: flex; flex-wrap: wrap; gap: 15px; }
+.contact-info a { color: #555; text-decoration: underline; }
+.resume-section { margin-bottom: 25px; }
+.section-title { font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.objective-text { font-size: 14px; text-align: justify; margin-top: -5px}
+.job-item { margin-bottom: 15px; }
+.job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+.job-role { font-weight: bold; font-size: 15px; }
+.job-company { color: #444; }
+.job-date { font-size: 13px; color: #777; white-space: nowrap; }
+.job-points { margin: 5px 0; padding-left: 20px; }
+.job-points li { font-size: 14px; margin-bottom: 4px; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 40px; }
+.skill-category h4 { font-size: 14px; margin: 0 0 5px 0; font-weight: bold; }
+.skill-category p { font-size: 14px; margin: 0; color: #444; }
+.edu-item p { font-size: 14px; margin: 2px 0; }
+.edu-coursework { margin-top: 5px; font-size: 14px; color: #444; }
 
-.resume-header h1 {
-  font-size: 32px;
-  margin: 0 0 5px 0;
-  font-weight: 800;
-}
-
-.contact-info {
-  font-size: 14px;
-  color: #555;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.contact-info a {
-  color: #555;
-  text-decoration: underline;
-}
-
-/* Common Section Styles */
-.resume-section {
-  margin-bottom: 25px;
-}
-
-.section-title {
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #eee; /* เส้นขีดบางๆ ถ้าต้องการ */
-  padding-bottom: 5px;
-}
-
-/* Objective */
-.objective-text {
-  font-size: 14px;
-  text-align: justify;
-}
-
-/* Work Experience */
-.job-item {
-  margin-bottom: 15px;
-}
-
-.job-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 5px;
-}
-
-.job-role {
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.job-company {
-  color: #444;
-}
-
-.job-date {
-  font-size: 13px;
-  color: #777;
-  white-space: nowrap;
-}
-
-.job-points {
-  margin: 5px 0;
-  padding-left: 20px;
-}
-
-.job-points li {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-/* Skills Grid (2 Columns) */
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* แบ่งครึ่งซ้ายขวา */
-  gap: 15px 40px;
-}
-
-.skill-category h4 {
-  font-size: 14px;
-  margin: 0 0 5px 0;
-  font-weight: bold;
-}
-
-.skill-category p {
-  font-size: 14px;
-  margin: 0;
-  color: #444;
-}
-
-/* Education */
-.edu-item p {
-  font-size: 14px;
-  margin: 2px 0;
-}
-.edu-coursework {
-  margin-top: 5px;
-  font-size: 14px;
-  color: #444;
-}
-
-/* Print Setting: ซ่อนปุ่ม และจัดขอบกระดาษ */
+/* --- PRINT SETTING --- */
 @media print {
-  .export-btn-container {
+  /* ซ่อนส่วนอื่นๆ ทั้งหมด */
+  .sidebar-controls, 
+  .export-btn-container, 
+  .navbar { /* สมมติว่า Navbar มี class นี้ */
     display: none !important;
   }
-  .resume-container {
+
+  /* ปรับ Resume ให้เต็มหน้ากระดาษ */
+  .resume-page-wrapper {
+    display: block;
+    margin: 0;
     padding: 0;
-    max-width: 100%;
-    box-shadow: none;
+    background: white;
   }
+
+  .resume-preview-section {
+    width: 100%;
+    flex: none;
+  }
+
+  .resume-container {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
   body {
     -webkit-print-color-adjust: exact;
   }
+  
   @page {
     margin: 1cm;
     size: A4;
