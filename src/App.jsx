@@ -8,6 +8,7 @@ import About from "./components/about/About";
 import DescProject from "./components/project/Descproject"; 
 import Project from "./components/project/Project";
 import Resume from "./components/resume/Resume";
+import Certificate from "./components/certificate/Certificate";
 
 const App = () => {
   return (
@@ -35,6 +36,8 @@ const App = () => {
        <Route path="/Project/:id" element={<DescProject />} /> 
 
        <Route path="/Resume" element={<Resume />} />
+
+       <Route path="/Certificate" element={<Certificate />} />
 
     </Routes>
   );

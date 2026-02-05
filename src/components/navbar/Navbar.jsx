@@ -89,7 +89,11 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="#Certificate" onClick={(e) => handleNavClick(e, "Certificate")}>
+            <a href="/Certificate" onClick={(e) => {
+                e.preventDefault(); 
+                navigate("/Certificate");    // 1. เปลี่ยนหน้า
+                window.scrollTo(0, 0);  // 2. สั่งให้เด้งไปบนสุดทันที
+              }}>
               Certificates
             </a>
           </li>
