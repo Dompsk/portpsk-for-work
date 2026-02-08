@@ -19,7 +19,7 @@ export const cerData = [
     id: 3,
     title: "Data analysis in Googlesheet",
     category: "Data Analysis",
-    image: "src/assets/cert/Data analy in ggsheet.png",
+    image: "/assets/cert/Data analy in ggsheet.png",
     description: "เจาะลึกเรื่อง Deep Learning และการสร้าง Model",
     date: "Dec 2025"
   },
@@ -27,7 +27,7 @@ export const cerData = [
     id: 4,
     title: "Data Analysis in Excel",
     category: "Data Analysis",
-    image: "src/assets/cert/dt in excel.png",
+    image: "/assets/cert/dt in excel.png",
     description: "การวิเคราะห์ข้อมูลด้วย Excel และ Power Query",
     date: "Dec 2025"
   },
@@ -35,7 +35,7 @@ export const cerData = [
     id: 5,
     title: "Financial Analysis in Googlesheet",
     category: "Data Analysis",
-    image: "src/assets/cert/fa in ggsheet.png",
+    image: "/assets/cert/fa in ggsheet.png",
     description: "การวิเคราะห์ข้อมูลด้วย Google Sheets และ Power Query",
     date: "Dec 2025"
   },
@@ -43,7 +43,7 @@ export const cerData = [
     id: 6,
     title: "Intermediate SQL",
     category: "Data Analysis",
-    image: "src/assets/cert/intermediate sql.png",
+    image: "/assets/cert/intermediate sql.png",
     description: "การใช้งาน SQL ระดับกลาง",
     date: "Jan 2026"
   },  
