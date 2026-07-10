@@ -1,9 +1,16 @@
-export const cerData = [
+import certBmc from "../../assets/cert/Certificate-BMC.pdf";
+import certMkd from "../../assets/cert/Certificate-MKD1001-TH.pdf";
+import dataAnalyGs from "../../assets/cert/Data analy in ggsheet.png";
+import dtExcel from "../../assets/cert/dt in excel.png";
+import faGs from "../../assets/cert/fa in ggsheet.png";
+import interSql from "../../assets/cert/intermediate sql.png";
+
+const Certificatedata = [
   {
     id: 1,
     title: "Business Model Canvas",
     category: "Business",
-    image: "src/assets/cert/Certificate-BMC.pdf", // เปลี่ยนเป็น path รูปภาพจริงของคุณ
+    image: certBmc,
     description: "เรียนรู้การวางแผนธุรกิจด้วยเครื่องมือ BMC",
     date: "Nov 2025"
   },
@@ -11,7 +18,7 @@ export const cerData = [
     id: 2,
     title: "Marketing for Entrepreneurs",
     category: "Business",
-    image: "src/assets/cert/Certificate-MKD1001-TH.pdf",
+    image: certMkd,
     description: "กลยุทธ์การตลาดสำหรับผู้ประกอบการ",
     date: "Nov 2025"
   },
@@ -19,7 +26,7 @@ export const cerData = [
     id: 3,
     title: "Data analysis in Googlesheet",
     category: "Data Analysis",
-    image: "/assets/cert/Data analy in ggsheet.png",
+    image: dataAnalyGs,
     description: "เจาะลึกเรื่อง Deep Learning และการสร้าง Model",
     date: "Dec 2025"
   },
@@ -27,7 +34,7 @@ export const cerData = [
     id: 4,
     title: "Data Analysis in Excel",
     category: "Data Analysis",
-    image: "/assets/cert/dt in excel.png",
+    image: dtExcel,
     description: "การวิเคราะห์ข้อมูลด้วย Excel และ Power Query",
     date: "Dec 2025"
   },
@@ -35,7 +42,7 @@ export const cerData = [
     id: 5,
     title: "Financial Analysis in Googlesheet",
     category: "Data Analysis",
-    image: "/assets/cert/fa in ggsheet.png",
+    image: faGs,
     description: "การวิเคราะห์ข้อมูลด้วย Google Sheets และ Power Query",
     date: "Dec 2025"
   },
@@ -43,8 +50,10 @@ export const cerData = [
     id: 6,
     title: "Intermediate SQL",
     category: "Data Analysis",
-    image: "/assets/cert/intermediate sql.png",
+    image: interSql,
     description: "การใช้งาน SQL ระดับกลาง",
     date: "Jan 2026"
-  },  
+  }
 ];
+
+export default Certificatedata;
