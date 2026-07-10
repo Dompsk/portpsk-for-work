@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 
 // Reusable Components
 import Navbar from "./components/navbar/Navbar";
-
 // Pages
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";

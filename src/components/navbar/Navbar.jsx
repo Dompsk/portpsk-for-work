@@ -5,6 +5,7 @@ const Navbar = () => {
   const [isShrunken, setIsShrunken] = useState(false);
   const [showScrollBtn, setShowScrollBtn] = useState(false);
 
+  // ประกาศตัวแปรสำหรับเช็คหน้าและเปลี่ยนหน้า
   const location = useLocation();
   const navigate = useNavigate();
   const shrinkThreshold = 50;
@@ -20,10 +21,12 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ฟังก์ชันสำหรับจัดการการคลิกเมนูในหน้า Home (Scroll)
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
 
     if (location.pathname === "/") {
+      // === กรณีอยู่หน้า Home (หน้าหลัก) ===
       if (targetId === "Home") {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
@@ -33,8 +36,9 @@ const Navbar = () => {
         }
       }
     } else {
+      // === กรณีอยู่หน้าอื่น ===
+      // ย้ายกลับไป Home ก่อน แล้วค่อยเลื่อน
       navigate("/");
-
       if (targetId !== "Home") {
         setTimeout(() => {
           const element = document.getElementById(targetId);
@@ -115,6 +119,20 @@ const Navbar = () => {
               Certificates
             </a>
           </li>
+          
+          <li>
+            <a 
+              href="/resume" 
+              onClick={(e) => {
+                e.preventDefault(); 
+                navigate("/resume");    // 1. เปลี่ยนหน้า
+                window.scrollTo(0, 0);  // 2. สั่งให้เด้งไปบนสุดทันที
+              }}
+            >
+              Resume
+            </a>
+          </li>
+
           {/* <li>
             <Link to="/Resume" className={linkClasses}>
               Resume
