@@ -1,4 +1,15 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Fontstyle';
+  src: url("/src/assets/fonts/GlacialIndifference-Regular.otf") format("opentype");
+}
+
+@theme {
+  --font-fontstyle: 'Fontstyle', sans-serif;
+}
 
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
 }
