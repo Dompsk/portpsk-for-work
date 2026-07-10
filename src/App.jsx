@@ -1,13 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-//Components เดิม
+// Reusable Components
 import Navbar from "./components/navbar/Navbar";
-import Home from "./components/home/Home";
-import About from "./components/about/About";
-import DescProject from "./components/project/Descproject"; 
-import Project from "./components/project/Project";
-import Resume from "./components/resume/Resume";
+
+// Pages
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Project from "./pages/Project/Project";
+import Certificates from "./pages/Certificates/Certificates";
+import DescProject from "./pages/ProjectDetail/Descproject";
+import Resume from "./pages/Resume/Resume";
+import AllProjects from "./pages/Project/AllProjects";
 
 const App = () => {
   return (
@@ -27,14 +31,18 @@ const App = () => {
               <section id="Project">
                 <Project />
               </section>
+              <section id="Certificate">
+                <Certificates />
+              </section>
             </main>
           </>
         }
       />
 
-       <Route path="/Project/:id" element={<DescProject />} /> 
+      <Route path="/projects" element={<AllProjects />} />
+      <Route path="/Project/:id" element={<DescProject />} />
 
-       <Route path="/Resume" element={<Resume />} />
+      <Route path="/Resume" element={<Resume />} />
 
     </Routes>
   );

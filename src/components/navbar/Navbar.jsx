@@ -1,46 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
-// 1. ✅ Import hooks จาก react-router-dom เข้ามาเพิ่ม
-import { useLocation, useNavigate } from "react-router-dom";
-import "./Navbar.css";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
-  const navbarRef = useRef(null);
+  const [isShrunken, setIsShrunken] = useState(false);
   const [showScrollBtn, setShowScrollBtn] = useState(false);
 
-  // 2. ✅ ประกาศตัวแปรสำหรับเช็คหน้าและเปลี่ยนหน้า
   const location = useLocation();
   const navigate = useNavigate();
-
   const shrinkThreshold = 50;
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      if (navbarRef.current) {
-        if (scrollY > shrinkThreshold) {
-          navbarRef.current.classList.add("shrunken");
-        } else {
-          navbarRef.current.classList.remove("shrunken");
-        }
-      }
-      if (scrollY > 300) {
-        setShowScrollBtn(true);
-      } else {
-        setShowScrollBtn(false);
-      }
+      setIsShrunken(scrollY > shrinkThreshold);
+      setShowScrollBtn(scrollY > 300);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 3. ✅ สร้างฟังก์ชันใหม่สำหรับจัดการการคลิกเมนู
   const handleNavClick = (e, targetId) => {
-    e.preventDefault(); // ป้องกันการใส่ # ใน url อัตโนมัติ
+    e.preventDefault();
 
     if (location.pathname === "/") {
-      // === กรณีอยู่หน้า Home (หน้าหลัก) ===
-      // ให้ทำเหมือนเดิมคือเลื่อน (Scroll) ไปหา
       if (targetId === "Home") {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
@@ -50,11 +33,8 @@ const Navbar = () => {
         }
       }
     } else {
-      // === กรณีอยู่หน้าอื่น (เช่น หน้า Project Detail) ===
-      // ให้สั่งย้ายหน้ากลับไป Home ก่อน
       navigate("/");
 
-      // (Option) ถ้าอยากให้เด้งไปหา section นั้นๆ ด้วย ต้องหน่วงเวลานิดนึงเพื่อให้หน้า Home โหลดเสร็จก่อน
       if (targetId !== "Home") {
         setTimeout(() => {
           const element = document.getElementById(targetId);
@@ -63,47 +43,86 @@ const Navbar = () => {
           }
         }, 100);
       } else {
-        // ถ้ากด Home ให้เด้งไปบนสุด
         window.scrollTo(0, 0);
       }
     }
   };
 
+  // Base Tailwind classes for the navigation links
+  const linkBaseClasses = `
+    text-white no-underline font-fontstyle uppercase tracking-[1px] relative 
+    transition-colors duration-300 whitespace-nowrap hover:text-[#cecece]
+    after:content-[''] after:absolute after:bottom-1 after:left-3.5 after:right-3.5 
+    after:h-[2px] after:bg-white after:scale-x-0 after:origin-left 
+    after:transition-transform after:duration-200 after:ease-out hover:after:scale-x-100
+    max-md:text-[12px] max-md:px-2 max-md:py-1.5 max-md:tracking-[0.5px]
+  `;
+
+  const linkActiveClasses = isShrunken
+    ? "text-[17.5px] px-5 py-1.5"
+    : "text-[20px] px-[18px] py-2";
+
+  const linkClasses = `${linkBaseClasses} ${linkActiveClasses}`;
+
   return (
     <>
-      <nav className="navbar" ref={navbarRef}>
-        <div className="logo" onClick={(e) => handleNavClick(e, "Home")}>
+      <nav
+        className={`bg-[#111] fixed top-0 left-0 w-full shadow-[0_2px_5px_rgba(255,255,255,0.1)] z-50 transition-all duration-300 flex justify-between items-center box-border ${
+          isShrunken ? "py-2.5 px-10 max-md:px-5" : "py-4.5 px-10 max-md:px-5"
+        }`}
+      >
+        <div
+          className="text-white font-bold no-underline transition-all duration-300 font-fontstyle shrink-0 cursor-pointer hover:text-white text-[28px] max-md:text-[22px]"
+          onClick={(e) => handleNavClick(e, "Home")}
+        >
           Psk
         </div>
 
-        <ul className="nav-links">
+        <ul className="list-none flex items-center p-0 m-0 flex-1 justify-center gap-0">
           <li>
-            <a href="#Home" onClick={(e) => handleNavClick(e, "Home")}>
+            <a
+              href="#Home"
+              onClick={(e) => handleNavClick(e, "Home")}
+              className={linkClasses}
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#About" onClick={(e) => handleNavClick(e, "About")}>
+            <a
+              href="#About"
+              onClick={(e) => handleNavClick(e, "About")}
+              className={linkClasses}
+            >
               About
             </a>
           </li>
           <li>
-            <a href="#Project" onClick={(e) => handleNavClick(e, "Project")}>
+            <a
+              href="#Project"
+              onClick={(e) => handleNavClick(e, "Project")}
+              className={linkClasses}
+            >
               Projects
             </a>
           </li>
           <li>
-            <a href="#Certificate" onClick={(e) => handleNavClick(e, "Certificate")}>
+            <a
+              href="#Certificate"
+              onClick={(e) => handleNavClick(e, "Certificate")}
+              className={linkClasses}
+            >
               Certificates
             </a>
           </li>
           {/* <li>
-            <a href="#Contact" onClick={(e) => handleNavClick(e, "Contact")}>
-              Contact
-            </a>
+            <Link to="/Resume" className={linkClasses}>
+              Resume
+            </Link>
           </li> */}
         </ul>
       </nav>
+      {/* Scroll Top Button - Kept for reference but not currently visible based on state hook logic previously present but omitted from render */}
     </>
   );
 };
