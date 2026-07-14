@@ -5,8 +5,8 @@ const TechStack = () => {
   const h3Class = "text-[1.2rem] font-semibold text-black m-0";
   const cardClass = "bg-white border border-[#e0e0e0] rounded-[10px] p-[20px] shadow-[0_2px_5px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-[3px] hover:border-black";
   const h4Class = "text-[0.95rem] font-bold mb-[12px] border-b border-[#eee] pb-[6px]";
-  const skillListClass = "list-none p-0 m-0 flex flex-col gap-[8px]";
-  const skillItemClass = "text-[0.85rem] text-[#444] flex items-center before:content-['•'] before:text-[#01189e] before:mr-[8px] before:font-bold";
+  const skillListClass = "list-none p-0 m-0 grid grid-rows-4 grid-flow-col gap-x-[24px] gap-y-[12px] overflow-x-auto pb-[4px] snap-x";
+  const skillItemClass = "text-[0.85rem] text-[#444] flex items-center before:content-['•'] before:text-[#01189e] before:mr-[8px] before:font-bold whitespace-nowrap snap-start";
   
   const toolListClass = "list-none p-0 m-0 flex flex-wrap gap-[10px]";
   const toolItemClass = "bg-[#f3f3f3] px-[14px] py-[6px] rounded-[20px] text-[0.8rem] text-[#333] transition-all duration-200 hover:bg-[#01189e] hover:text-white hover:scale-105";
@@ -17,20 +17,21 @@ const TechStack = () => {
       {/* --- Skills Section --- */}
       <section className={sectionClass}>
         <h3 className={h3Class}>( Skills )</h3>
-        <div className="grid grid-cols-2 max-xl:grid-cols-1 gap-[16px]">
+        <div className="flex overflow-x-auto gap-[16px] pb-[8px] snap-x">
           {/* Front-end */}
-          <div className={cardClass}>
+          <div className={`flex-1 min-w-[280px] shrink-0 snap-start ${cardClass}`}>
             <h4 className={h4Class}>Programing lang</h4>
             <ul className={skillListClass}>
               <li className={skillItemClass}>HTML/CSS/JaveScript</li>
               <li className={skillItemClass}>Python</li>
               <li className={skillItemClass}>PHP</li>
               <li className={skillItemClass}>Java</li>
+    
             </ul>
           </div>
 
           {/* Back-end */}
-          <div className={cardClass}>
+          <div className={`flex-1 min-w-[280px] shrink-0 snap-start ${cardClass}`}>
             <h4 className={h4Class}>Framework&Library</h4>
             <ul className={skillListClass}>
               <li className={skillItemClass}>React</li>
@@ -61,12 +62,13 @@ const TechStack = () => {
         <div className={cardClass}>
           <ul className={toolListClass}>
             <li className={toolItemClass}>Git&GitHub</li>
-            <li className={toolItemClass}>Excel&Power bi</li>
             <li className={toolItemClass}>Sourcetree</li>
-            <li className={toolItemClass}>Kaggle</li>
-            <li className={toolItemClass}>Colab</li>
+            <li className={toolItemClass}>Draw.io</li>
             <li className={toolItemClass}>Figma</li>
+            <li className={toolItemClass}>Postman</li>
             <li className={toolItemClass}>Canva</li>
+            <li className={toolItemClass}>Kaggle</li>
+            <li className={toolItemClass}>Excel&Power bi</li>
           </ul>
         </div>
       </section>
