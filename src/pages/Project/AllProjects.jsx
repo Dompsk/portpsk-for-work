@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
-import Projectdata from './Projectdata';
+import Projectdata, { sortedProjects } from './Projectdata';
 
 const AllProjects = () => {
   // เลื่อนกลับไปด้านบนสุดเวลาเปิดหน้านี้
@@ -22,7 +22,7 @@ const AllProjects = () => {
           </p>
 
           <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] max-md:grid-cols-1 gap-[30px]">
-            {Projectdata.map((project) => (
+            {sortedProjects.map((project) => (
               <Link to={project.link} className="bg-white rounded-[16px] overflow-hidden no-underline text-inherit shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-all duration-[400ms] ease-[cubic-bezier(0.175,0.885,0.32,1.275)] flex flex-col border border-transparent hover:-translate-y-[10px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#eee] group" key={project.id}>
                 
                 <div className="w-full h-[160px] overflow-hidden relative">

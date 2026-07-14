@@ -36,11 +36,11 @@ const Descproject = () => {
             {project.title}
           </h1>
           
-          <div className="w-full h-[300px] max-sm:h-[200px] mb-[40px] rounded-[15px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.06)]">
+          <div className="w-full mb-[40px] rounded-[15px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.06)] bg-[#f5f5f5] flex justify-center items-center">
             <img 
               src={project.image} 
               alt={project.title} 
-              className="w-full h-full object-cover block transition-transform duration-300 ease-in-out hover:scale-[1.02]"
+              className="w-full max-h-[400px] max-sm:max-h-[220px] object-contain block transition-transform duration-300 ease-in-out hover:scale-[1.02]"
             />
           </div>
 
