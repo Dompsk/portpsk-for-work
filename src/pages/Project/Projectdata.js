@@ -1,5 +1,5 @@
 import uhosnetImg from "../../assets/picWork/Uhosnet.png";
-
+import lmsTeamNoti from "../../assets/picWork/lmsTeamNoti.png";
 const Projectdata = [
   {
     id: 1,
@@ -68,6 +68,20 @@ const Projectdata = [
     description: "Website for the 90th UhosNet conference at Prince of Songkhla University.",
     image: uhosnetImg,
     link: "/project/5",
+    demoLink: "",
+    githubLink: ""
+  },
+    {
+    id: 6,
+    title: "Psu Notification !",
+    category: "Website",
+    categories: ["UI/UX Design", "Fullstack"],
+    tools: ["Vue3", "Tailwind CSS","Figma","Nest.js","Postman","Render","Vercel","Docker","SourceTree"],
+    date: "25 June, 2026",
+    sortDate: new Date("2026-06-25"),
+    description: "A system that can automatically send notifications to LMS PSU when the date of the publication has expired.",
+    image: lmsTeamNoti,
+    link: "/project/6",
     demoLink: "",
     githubLink: ""
   },
