@@ -16,7 +16,7 @@ const Project = () => {
             <Link to={project.link} className="bg-white rounded-[16px] overflow-hidden no-underline text-inherit shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-all duration-[400ms] ease-[cubic-bezier(0.175,0.885,0.32,1.275)] flex flex-col border border-transparent hover:-translate-y-[10px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:border-[#eee] group" key={project.id}>
               
               <div className="w-full h-[160px] overflow-hidden relative">
-                <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-[600ms] ease-in-out group-hover:scale-110" />
+                <img src={project.image} alt={project.title} loading="lazy" className="w-full h-[160px] object-cover transition-transform duration-[600ms] ease-in-out group-hover:scale-110" />
                 <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
                     <span className="text-white border border-white px-[20px] py-[10px] rounded-[30px] font-bold tracking-[1px] uppercase text-[0.9rem] bg-[rgba(0,0,0,0.5)]">
                       View Case Study
