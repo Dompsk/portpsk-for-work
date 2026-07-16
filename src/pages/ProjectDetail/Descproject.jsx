@@ -15,98 +15,175 @@ const Descproject = () => {
     return (
       <>
         <Navbar />
-        <div style={{ padding: '150px 20px', textAlign: 'center', fontSize: '1.5rem' }}>
+        <div className="flex items-center justify-center min-h-screen text-[1.2rem] text-[#888] font-fontstyle">
           Project not found.
         </div>
       </>
     );
   }
 
-  const actionBtnClass = "inline-block py-[12px] px-[30px] border border-[#111] bg-transparent text-[#111] no-underline text-[0.95rem] font-bold uppercase tracking-[1.5px] transition-all duration-300 ease-in-out cursor-pointer hover:bg-[#111] hover:text-white hover:-translate-y-[2px] hover:shadow-[0_6px_15px_rgba(0,0,0,0.1)]";
+  const actionBtnClass =
+    'inline-block py-[10px] px-[24px] border border-[#111] bg-transparent text-[#111] no-underline text-[0.85rem] font-bold uppercase tracking-[1.5px] transition-all duration-300 cursor-pointer hover:bg-[#111] hover:text-white hover:-translate-y-[2px]';
+  const boxClass = 'bg-white p-[20px] rounded-[12px] border border-[#e8e8e8]';
+  const headingClass = 'font-fontstyle text-[0.65rem] font-bold mb-[8px] tracking-[3px] text-[#111] uppercase mt-0';
+  const accentClass = 'w-[22px] h-[2px] bg-[#111] mb-[14px]';
+  const pillClass =
+    'font-fontstyle text-[0.78rem] text-[#444] bg-[#f5f5f5] border border-[#e4e4e4] px-[11px] py-[4px] rounded-full tracking-[0.5px]';
+
+  const SidebarContent = () => (
+    <div className="flex flex-col gap-[14px]">
+      {/* Row 1: Categories + Language */}
+      <div className="grid grid-cols-2 gap-[14px]">
+        <div className={boxClass}>
+          <h3 className={headingClass}>Categories</h3>
+          <div className={accentClass}></div>
+          <ul className="list-none p-0 m-0">
+            {(project.categories || [project.category]).map((cat, i) => (
+              <li key={i} className="font-fontstyle py-[8px] border-b border-[#f0f0f0] text-[#555] text-[0.82rem] last:border-b-0">
+                {cat}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {project.languages?.length > 0 && (
+          <div className={boxClass}>
+            <h3 className={headingClass}>Language</h3>
+            <div className={accentClass}></div>
+            <div className="flex flex-wrap gap-[6px]">
+              {project.languages.map((lang, i) => (
+                <span key={i} className={pillClass}>{lang}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Row 2: Framework & Lib */}
+      {project.frameworks?.length > 0 && (
+        <div className={boxClass}>
+          <h3 className={headingClass}>Framework & Lib</h3>
+          <div className={accentClass}></div>
+          <div className="flex flex-wrap gap-[6px]">
+            {project.frameworks.map((fw, i) => (
+              <span key={i} className={pillClass}>{fw}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Row 3: Tools */}
+      {project.tools?.length > 0 && (
+        <div className={boxClass}>
+          <h3 className={headingClass}>Tools</h3>
+          <div className={accentClass}></div>
+          <div className="flex flex-wrap gap-[6px]">
+            {project.tools.map((tool, i) => (
+              <span key={i} className={pillClass}>{tool}</span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <>
       <Navbar />
 
-      <div className="flex max-md:flex-col gap-[60px] items-start max-w-[1100px] mx-auto pt-[140px] max-md:pt-[100px] px-[20px] pb-[80px] min-h-[80vh]">
-        
-        {/* Left Content */}
-        <div className="-mt-[50px] flex-[3] relative max-md:-mt-0">
-          <h1 className="font-fontstyle text-[2.8rem] font-[400] text-[#111] mb-[30px] tracking-[1px] uppercase">
-            {project.title}
-          </h1>
-          
-          <div className="w-full mb-[40px] rounded-[15px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.06)] bg-[#f5f5f5] flex justify-center items-center">
-            <img 
-              src={project.image} 
-              alt={project.title} 
-              className="w-full max-h-[400px] max-sm:max-h-[220px] object-contain block transition-transform duration-300 ease-in-out hover:scale-[1.02]"
-            />
+      <div className="max-w-[1200px] mx-auto px-[20px] sm:px-[32px] pt-[120px] sm:pt-[140px] pb-[80px] min-h-[80vh]">
+
+        {/* ── Desktop (lg+): side-by-side ── */}
+        <div className="hidden lg:flex gap-[48px] items-start">
+
+          {/* Left */}
+          <div className="flex-1 min-w-0 -mt-[40px]">
+            <h1 className="font-fontstyle text-[2.6rem] font-[400] text-[#111] mb-[28px] tracking-[1px] uppercase leading-[1.2]">
+              {project.title}
+            </h1>
+
+            <div className="w-full mb-[36px] rounded-[14px] overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.06)] bg-[#f5f5f5] flex justify-center items-center">
+              <img src={project.image} alt={project.title}
+                className="w-full max-h-[420px] object-contain block transition-transform duration-300 hover:scale-[1.02]" />
+            </div>
+
+            <p className="font-fontstyle text-[1rem] leading-[1.85] text-[#555] mb-[36px]">
+              {project.description}
+            </p>
+
+            <div className="flex gap-[16px]">
+              {project.demoLink && (
+                <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>Demo</a>
+              )}
+              {project.githubLink && (
+                <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>GitHub</a>
+              )}
+            </div>
           </div>
 
-          <div className="font-fontstyle text-[1.1rem] leading-[1.8] text-[#555] mb-[40px]">
-            <p>{project.description}</p>
-          </div>
-
-          <div className="flex gap-[20px] mt-[20px]">
-            {project.demoLink && (
-              <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>
-                Demo
-              </a>
-            )}
-            {project.githubLink && (
-              <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>
-                GitHub
-              </a>
-            )}
+          {/* Right Sidebar — fixed 320px */}
+          <div className="w-[320px] shrink-0 sticky top-[100px]">
+            <SidebarContent />
           </div>
         </div>
 
-        {/* Right Sidebar */}
-        <div className="flex-[1] max-md:w-full sticky top-[100px] max-md:static flex flex-col gap-[40px]">
-          
-          {/* Box 1: Categories */}
-          <div className="bg-[#fafafa] p-[30px] rounded-[10px] border-2 border-[#fafafa] shadow-[0_25px_20px_rgba(0,0,0,0.05)]">
-            <h3 className="font-fontstyle text-[1.2rem] font-bold mb-[10px] tracking-[2px] text-[#111] mt-0">
-              CATEGORIES
-            </h3>
-            <div className="w-[40px] h-[3px] bg-[#111] mb-[25px]"></div>
-            <ul className="list-none p-0 m-0">
-              {project.categories ? (
-                project.categories.map((cat, index) => (
-                  <li key={index} className="font-fontstyle py-[12px] px-0 border-b border-[#eee] text-[#555] text-[1rem] last:border-b-0">
-                    {cat}
-                  </li>
-                ))
-              ) : (
-                <li className="font-fontstyle py-[12px] px-0 border-b border-[#eee] text-[#555] text-[1rem] last:border-b-0">
-                  {project.category}
-                </li>
+        {/* ── iPad (md–lg): content top, sidebar below as 2-col grid ── */}
+        <div className="hidden md:block lg:hidden">
+          {/* Main content */}
+          <div className="mb-[40px]">
+            <h1 className="font-fontstyle text-[2.2rem] font-[400] text-[#111] mb-[24px] tracking-[1px] uppercase leading-[1.2]">
+              {project.title}
+            </h1>
+            <div className="w-full mb-[28px] rounded-[12px] overflow-hidden shadow-[0_10px_24px_rgba(0,0,0,0.06)] bg-[#f5f5f5] flex justify-center items-center">
+              <img src={project.image} alt={project.title}
+                className="w-full max-h-[360px] object-contain block" />
+            </div>
+            <p className="font-fontstyle text-[1rem] leading-[1.85] text-[#555] mb-[28px]">
+              {project.description}
+            </p>
+            <div className="flex gap-[16px]">
+              {project.demoLink && (
+                <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>Demo</a>
               )}
-            </ul>
+              {project.githubLink && (
+                <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>GitHub</a>
+              )}
+            </div>
           </div>
 
-          {/* Box 2: Languages & Tools */}
-          <div className="bg-[#fafafa] p-[30px] rounded-[10px] border-2 border-[#fafafa] shadow-[0_25px_20px_rgba(0,0,0,0.05)]">
-            <h3 className="font-fontstyle text-[1.2rem] font-bold mb-[10px] tracking-[2px] text-[#111] mt-0">
-              LANGUAGES & TOOLS
-            </h3>
-            <div className="w-[40px] h-[3px] bg-[#111] mb-[25px]"></div>
-            <ul className="list-none p-0 m-0">
-              {project.tools ? (
-                 project.tools.map((tool, index) => (
-                   <li key={index} className="font-fontstyle py-[12px] px-0 border-b border-[#eee] text-[#555] text-[1rem] last:border-b-0">
-                     {tool}
-                   </li>
-                 ))
-              ) : (
-                 <li className="font-fontstyle py-[12px] px-0 border-b border-[#eee] text-[#555] text-[1rem] last:border-b-0">
-                   -
-                 </li>
-              )}
-            </ul>
+          {/* Tech info — stretched full width below */}
+          <div className="border-t border-[#f0f0f0] pt-[32px]">
+            <p className="font-fontstyle text-[0.65rem] tracking-[3px] uppercase text-[#aaa] mb-[20px]">Tech Stack</p>
+            <SidebarContent />
+          </div>
+        </div>
+
+        {/* ── Mobile (< md): fully stacked ── */}
+        <div className="block md:hidden">
+          <h1 className="font-fontstyle text-[1.8rem] font-[400] text-[#111] mb-[20px] tracking-[1px] uppercase leading-[1.2]">
+            {project.title}
+          </h1>
+          <div className="w-full mb-[24px] rounded-[10px] overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.06)] bg-[#f5f5f5] flex justify-center items-center">
+            <img src={project.image} alt={project.title}
+              className="w-full max-h-[220px] object-contain block" />
+          </div>
+          <p className="font-fontstyle text-[0.95rem] leading-[1.85] text-[#555] mb-[24px]">
+            {project.description}
+          </p>
+          <div className="flex gap-[12px] mb-[36px]">
+            {project.demoLink && (
+              <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>Demo</a>
+            )}
+            {project.githubLink && (
+              <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>GitHub</a>
+            )}
           </div>
 
+          {/* Tech info stacked */}
+          <div className="border-t border-[#f0f0f0] pt-[28px]">
+            <p className="font-fontstyle text-[0.65rem] tracking-[3px] uppercase text-[#aaa] mb-[16px]">Tech Stack</p>
+            <SidebarContent />
+          </div>
         </div>
 
       </div>
