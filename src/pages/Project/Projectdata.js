@@ -82,8 +82,8 @@ const Projectdata = [
     description: "A system that can automatically send notifications to LMS PSU when the date of the publication has expired.",
     image: lmsTeamNoti,
     link: "/project/6",
-    demoLink: "",
-    githubLink: ""
+    demoLink: "https://psu-lms-team.vercel.app/",
+    githubLink: "https://github.com/Dompsk/Psu-LmsTeam"
   },
 ];
 
