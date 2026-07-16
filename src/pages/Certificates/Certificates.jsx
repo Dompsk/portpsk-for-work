@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Certificatedata from "./Certificatedata";
+import Certificatedata, { sortedCertificate } from "./Certificatedata";
 
 const CATEGORIES = ["All", ...new Set(Certificatedata.map((c) => c.category))];
 
@@ -8,8 +8,8 @@ const Certificates = () => {
 
   const filtered =
     activeFilter === "All"
-      ? Certificatedata
-      : Certificatedata.filter((c) => c.category === activeFilter);
+      ? sortedCertificate
+      : sortedCertificate.filter((c) => c.category === activeFilter);
 
   return (
     <section id="Certificate" className="pt-[80px] pb-[80px] px-[8%] min-h-[80vh] bg-white text-[#111]">
