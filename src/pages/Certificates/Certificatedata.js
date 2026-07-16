@@ -4,7 +4,7 @@ import dataAnalyGs from "../../assets/cert/Data analy in ggsheet.png";
 import dtExcel from "../../assets/cert/dt in excel.png";
 import faGs from "../../assets/cert/fa in ggsheet.png";
 import interSql from "../../assets/cert/intermediate sql.png";
-import inturnPSU from "../../assets/cert/internE-cerPSU.jpg"
+import inturnPSU from "../../assets/cert/InternE-cerPSU.jpg"
 
 const Certificatedata = [
   {
