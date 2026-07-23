@@ -31,8 +31,8 @@ const Education = () => {
               </h3>
             </div>
 
-            <ol className="list-none relative m-0 pl-[30px] before:content-[''] before:absolute before:top-[10px] before:left-[14px] before:w-[2px] before:h-[55%] before:bg-[#ccc] before:z-0">
-              <li className="relative mb-[42px] last:mb-0 before:content-[''] before:absolute before:left-[-22px] before:top-[3px] before:w-[14px] before:h-[14px] before:bg-white before:border-2 before:border-[#aaa] before:rounded-full before:z-10">
+            <ol className="list-none relative m-0 pl-[30px]">
+              <li className="relative mb-[42px] last:mb-0 before:content-[''] before:absolute before:left-[-22px] before:top-[3px] before:w-[14px] before:h-[14px] before:bg-white before:border-2 before:border-[#aaa] before:rounded-full before:z-10 after:content-[''] after:absolute after:left-[-16px] after:top-[17px] after:bottom-[-52px] after:w-[2px] after:bg-[#ccc] after:z-0 last:after:content-none">
                 <h4 className="text-[1rem] font-bold m-[0_0_4px_0] text-[#111] font-fontstyle">
                   Prince of Songkhla University, Hat Yai Campus
                 </h4>
@@ -46,7 +46,7 @@ const Education = () => {
                 </p>
               </li>
 
-              <li className="relative mb-[32px] last:mb-0 before:content-[''] before:absolute before:left-[-22px] before:top-[3px] before:w-[14px] before:h-[14px] before:bg-white before:border-2 before:border-[#aaa] before:rounded-full before:z-10">
+              <li className="relative mb-[30px] last:mb-0 before:content-[''] before:absolute before:left-[-22px] before:top-[3px] before:w-[14px] before:h-[14px] before:bg-white before:border-2 before:border-[#aaa] before:rounded-full before:z-10 after:content-[''] after:absolute after:left-[-16px] after:top-[17px] after:bottom-[-52px] after:w-[2px] after:bg-[#ccc] after:z-0 last:after:content-none">
                 <h4 className="text-[1rem] font-bold m-[0_0_4px_0] text-[#111] font-fontstyle">
                   Kanchanapisek Wittayalai School, SuratThani
                 </h4>
@@ -64,7 +64,7 @@ const Education = () => {
         </div>
 
         {/* ===== RIGHT COLUMN ===== */}
-        <div className="sticky top-[80px] max-[900px]:static">
+        <div className="sticky top-[80px] max-[1000px]:static">
           <TechStack />
         </div>
 
