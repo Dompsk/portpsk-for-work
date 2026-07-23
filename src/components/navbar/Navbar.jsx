@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Navbar = () => {
   const [isShrunken, setIsShrunken] = useState(false);
-  const [showScrollBtn, setShowScrollBtn] = useState(false);
 
   // ประกาศตัวแปรสำหรับเช็คหน้าและเปลี่ยนหน้า
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const shrinkThreshold = 50;
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setIsShrunken(scrollY > shrinkThreshold);
-      setShowScrollBtn(scrollY > 300);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -89,7 +89,7 @@ const Navbar = () => {
               onClick={(e) => handleNavClick(e, "Home")}
               className={linkClasses}
             >
-              Home
+              {t.nav.home}
             </a>
           </li>
           <li>
@@ -98,16 +98,16 @@ const Navbar = () => {
               onClick={(e) => handleNavClick(e, "About")}
               className={linkClasses}
             >
-              About
+              {t.nav.about}
             </a>
           </li>
           <li>
             <a
-              href="#Project"
-              onClick={(e) => handleNavClick(e, "Project")}
+              href="#project"
+              onClick={(e) => handleNavClick(e, "project")}
               className={linkClasses}
             >
-              Projects
+              {t.nav.projects}
             </a>
           </li>
           <li>
@@ -116,7 +116,7 @@ const Navbar = () => {
               onClick={(e) => handleNavClick(e, "Certificate")}
               className={linkClasses}
             >
-              Certificates
+              {t.nav.certificates}
             </a>
           </li>
           
@@ -129,7 +129,7 @@ const Navbar = () => {
                 window.scrollTo(0, 0);  // 2. สั่งให้เด้งไปบนสุดทันที
               }}
             >
-              Resume
+              {t.nav.resume}
             </a>
           </li>
 

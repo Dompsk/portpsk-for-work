@@ -1,11 +1,13 @@
 import React from "react";
 import TechStack from "../../components/TechStack/Techstack";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Education = () => {
+  const { t } = useLanguage();
   return (
     <section id="About" className="pt-[100px] pb-[80px] px-[8%] max-md:px-[5%] bg-white text-[#111]">
       <h2 className="font-fontstyle text-[32px] font-[800] tracking-[3px] uppercase border-b-2 border-[#111] pb-2 mb-[40px] inline-block">
-        ABOUT
+        {t.about.title}
       </h2>
 
       {/* 2-column layout: Left = intro + education | Right = TechStack */}
@@ -17,12 +19,7 @@ const Education = () => {
           {/* Intro text */}
           <div className="p-[22px_24px] bg-[#fafafa] border border-[#e8e8e8] rounded-[10px] transition-all duration-[250ms] ease-in-out hover:-translate-y-[3px] hover:border-[#ccc]">
             <p className="text-[0.95rem] leading-[1.8] text-[#333] m-0 font-fontstyle">
-              Hello! I'm <span className="font-bold bg-gradient-to-r from-slate-600 to-blue-900 bg-clip-text text-transparent">Phongsakon Charanrak</span>, a
-              Computer Science student at{" "}
-              <span className="font-bold bg-gradient-to-r from-slate-600 to-blue-900 bg-clip-text text-transparent">Prince of Songkla University</span>. This
-              website showcases the projects I've developed and the skills. <br />
-              I'm passionate about building practical solutions with interests in
-              <span className="font-semibold bg-gradient-to-r from-[#9c8411] to-blue-900 bg-clip-text text-transparent"> Web Developer</span>
+              {t.about.intro}
             </p>
           </div>
 
@@ -30,7 +27,7 @@ const Education = () => {
           <section className="mt-0">
             <div className="flex items-center mb-[16px]">
               <h3 className="text-[1rem] font-bold text-[#111] m-0 tracking-[1px] uppercase font-fontstyle">
-                ( Education )
+                {t.about.education}
               </h3>
             </div>
 
