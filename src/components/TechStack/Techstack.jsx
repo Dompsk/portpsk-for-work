@@ -3,7 +3,7 @@ import React from 'react'
 const TechStack = () => {
   const sectionClass = "flex flex-col gap-[16px]";
   const h3Class = "text-[1.2rem] font-semibold text-black m-0";
-  const cardClass = "bg-white border border-[#e0e0e0] rounded-[10px] p-[20px] shadow-[0_2px_5px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-[3px] hover:border-black";
+  const cardClass = "bg-white border border-[#e0e0e0] rounded-[10px] p-[15px] shadow-[0_2px_5px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-[-2px] hover:border-black";
   const h4Class = "text-[0.95rem] font-bold mb-[12px] border-b border-[#eee] pb-[6px]";
   const skillListClass = "list-none p-0 m-0 grid grid-rows-4 grid-flow-col gap-x-[24px] gap-y-[12px] overflow-x-auto pb-[4px] snap-x";
   const skillItemClass = "text-[0.85rem] text-[#444] flex items-center before:content-['•'] before:text-[#01189e] before:mr-[8px] before:font-bold whitespace-nowrap snap-start";
