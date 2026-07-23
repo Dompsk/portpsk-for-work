@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
+import { LanguageProvider } from './context/LanguageContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* ใช้ BrowserRouter เปล่าๆ ไม่ต้องมี basename สำหรับ Vercel */}
     <BrowserRouter>
-      <App />
+      <LanguageProvider><App /></LanguageProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

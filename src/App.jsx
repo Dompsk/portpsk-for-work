@@ -11,6 +11,7 @@ import Certificates from "./pages/Certificates/Certificates";
 import DescProject from "./pages/ProjectDetail/Descproject";
 import Resume from "./pages/Resume/Resume";
 import AllProjects from "./pages/Project/AllProjects";
+import Contact from "./components/Contact/Contact";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
               <section id="Certificate">
                 <Certificates />
               </section>
+              <Contact />
             </main>
           </>
         }
