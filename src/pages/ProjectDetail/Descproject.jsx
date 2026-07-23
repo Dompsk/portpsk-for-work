@@ -1,9 +1,12 @@
+/* eslint-disable react-hooks/static-components */
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
 import Projectdata from '../Project/Projectdata';
+import { useLanguage } from '../../context/LanguageContext';
 
 const Descproject = () => {
+  const { language, t } = useLanguage();
   const { id } = useParams();
   const project = Projectdata.find((p) => p.id === parseInt(id));
 
@@ -108,15 +111,15 @@ const Descproject = () => {
             </div>
 
             <p className="font-fontstyle text-[1rem] leading-[1.85] text-[#555] mb-[36px]">
-              {project.description}
+              {language === "th" ? project.descriptionTh : project.description}
             </p>
 
             <div className="flex gap-[16px]">
               {project.demoLink && (
-                <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>Demo</a>
+                <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>{t.detail.demo}</a>
               )}
               {project.githubLink && (
-                <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>GitHub</a>
+                <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>{t.detail.github}</a>
               )}
             </div>
           </div>
@@ -139,14 +142,14 @@ const Descproject = () => {
                 className="w-full max-h-[360px] object-contain block" />
             </div>
             <p className="font-fontstyle text-[1rem] leading-[1.85] text-[#555] mb-[28px]">
-              {project.description}
+              {language === "th" ? project.descriptionTh : project.description}
             </p>
             <div className="flex gap-[16px]">
               {project.demoLink && (
-                <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>Demo</a>
+                <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>{t.detail.demo}</a>
               )}
               {project.githubLink && (
-                <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>GitHub</a>
+                <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>{t.detail.github}</a>
               )}
             </div>
           </div>
@@ -168,14 +171,14 @@ const Descproject = () => {
               className="w-full max-h-[220px] object-contain block" />
           </div>
           <p className="font-fontstyle text-[0.95rem] leading-[1.85] text-[#555] mb-[24px]">
-            {project.description}
+            {language === "th" ? project.descriptionTh : project.description}
           </p>
           <div className="flex gap-[12px] mb-[36px]">
             {project.demoLink && (
-              <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>Demo</a>
+              <a href={project.demoLink} target="_blank" rel="noreferrer" className={actionBtnClass}>{t.detail.demo}</a>
             )}
             {project.githubLink && (
-              <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>GitHub</a>
+              <a href={project.githubLink} target="_blank" rel="noreferrer" className={actionBtnClass}>{t.detail.github}</a>
             )}
           </div>
 
@@ -186,6 +189,10 @@ const Descproject = () => {
           </div>
         </div>
 
+        <div className="mt-14 border-t border-[#e8e8e8] pt-8 text-center">
+          <p className="mb-4 font-fontstyle text-lg text-[#333]">{t.detail.contact}</p>
+          <a href="mailto:dompsk2547@gmail.com" className={actionBtnClass}>{t.detail.contactButton}</a>
+        </div>
       </div>
     </>
   );

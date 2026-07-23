@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
 import Projectdata, { sortedProjects } from './Projectdata';
+import { useLanguage } from '../../context/LanguageContext';
 
 const AllProjects = () => {
+  const { language, t } = useLanguage();
   // เลื่อนกลับไปด้านบนสุดเวลาเปิดหน้านี้
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,10 +17,10 @@ const AllProjects = () => {
       <div className="pt-[100px] pb-[80px] px-[8%] bg-[#f9f9f9] min-h-screen font-fontstyle">
         <div className="max-w-[1200px] mx-auto">
           <h1 className="text-[40px] max-md:text-[2.5rem] font-[800] uppercase tracking-[2px] mb-[10px] text-[#111]">
-            ALL PROJECTS
+            {t.projects.title}
           </h1>
           <p className="text-[1.1rem] text-[#666] mb-[40px]">
-            Explore all of my works, case studies, and experiences.
+            {t.projects.intro}
           </p>
 
           <div className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] max-md:grid-cols-1 gap-[30px]">
@@ -29,7 +31,7 @@ const AllProjects = () => {
                   <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-[600ms] ease-in-out group-hover:scale-110" />
                   <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] flex justify-center items-center opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
                       <span className="text-white border border-white px-[20px] py-[10px] rounded-[30px] font-bold tracking-[1px] uppercase text-[0.9rem] bg-[rgba(0,0,0,0.5)]">
-                        View Case Study
+                      {t.projects.caseStudy}
                       </span>
                   </div>
                 </div>
@@ -42,11 +44,11 @@ const AllProjects = () => {
                   </div>
                   
                   <h3 className="text-[1.5rem] font-bold text-black m-[0_0_12px_0] leading-[1.3]">{project.title}</h3>
-                  <p className="text-[1rem] text-[#555] leading-[1.6] -mt-[5px] mb-[5px] line-clamp-3">{project.description}</p>
+                  <p className="text-[1rem] text-[#555] leading-[1.6] -mt-[5px] mb-[5px] line-clamp-3">{language === "th" ? project.descriptionTh : project.description}</p>
                   
                   <div className="mt-auto border-t border-[#f0f0f0] pt-[15px]">
                      <span className="text-[0.9rem] font-bold uppercase text-black font-fontstyle transition-all duration-300 ease-in-out group-hover:text-[#555] group-hover:tracking-[1px]">
-                       Read more &rarr;
+                    {t.projects.read} &rarr;
                      </span>
                   </div>
                 </div>
