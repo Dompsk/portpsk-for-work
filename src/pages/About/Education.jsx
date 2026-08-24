@@ -19,7 +19,25 @@ const Education = () => {
           {/* Intro text */}
           <div className="p-[22px_24px] bg-[#fafafa] border border-[#e8e8e8] rounded-[10px] transition-all duration-[250ms] ease-in-out hover:-translate-y-[3px] hover:border-[#ccc]">
             <p className="text-[0.95rem] leading-[1.8] text-[#333] m-0 font-fontstyle">
-              {t.about.intro}
+              Hello! I'm Phongsakon Charanrak, a{" "}
+              <span style={{
+                background: "linear-gradient(90deg, #172B8C 0%, #2456C7 50%, #6246C7 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "transparent",
+                fontWeight: 600,
+              }}>Computer Science</span>
+              {" "}student at{" "}
+              <span style={{
+                background: "linear-gradient(90deg, #172B8C 0%, #2456C7 50%, #6246C7 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "transparent",
+                fontWeight: 600,
+              }}>Prince of Songkhla University</span>
+              . This website showcases the projects I've developed and the skills I use. I'm passionate about building practical web solutions.
             </p>
           </div>
 

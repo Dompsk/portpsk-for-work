@@ -32,8 +32,8 @@ const Projectdata = [
     descriptionTh: "ระบบรับซื้อน้ำยางพาราที่ช่วยให้เกษตรกรขายน้ำยางสดได้รวดเร็ว โปร่งใส และติดตามราคาแบบเรียลไทม์",
     image: "https://images.unsplash.com/photo-1707050682544-64b31983cc09?q=80&w=1170&auto=format&fit=crop",
     link: "/project/2",
-    demoLink: "https://rubberfarm.free.nf/",
-    githubLink: "https://github.com/Dompsk/Farm_Rubber"
+    demoLink: "https://latex-farm.page.gd/index.php",
+    githubLink: "https://github.com/Dompsk/Farm"
   },
   {
     id: 3,
